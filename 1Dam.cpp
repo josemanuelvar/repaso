@@ -33,8 +33,7 @@ void ejercicio_1();
 void vista_suma();
 void vista_resta();
 void vista_multiplicacion();
-
-
+void vista_division();
 
 
 
@@ -46,11 +45,19 @@ int main(){
     /*––––––––––––––––––-*
      * MÓDULOS BACK-ENED *
      *–––––––––––––––––––*/
+//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 5 División–––––––––––––––––––––––––––––––––––––––––––––––|
+
+float division(float a, float b){
+    float res = -1;
+    res = a / b;
+
+    return res;
+}
 
 //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
 
 float multiplicacion(float a, float b){
-    int res = -1;
+    float res = -1;
     res = a * b;
 
     return res;
@@ -59,7 +66,7 @@ float multiplicacion(float a, float b){
 //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
 
 float resta(float a, float b){
-    int res = -1;
+    float res = -1;
     res = a - b;
 
     return res;
@@ -68,7 +75,7 @@ float resta(float a, float b){
 //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2 Suma–––––––––––––––––––––––––––––––––––––––––––––––|
 
 float suma(float a, float b){
-    int res = -1;
+    float res = -1;
     res = a + b;
 
     return res;
@@ -94,7 +101,9 @@ float suma(float a, float b){
                     case(4):
                         vista_multiplicacion();
                     break;
-
+                    case(5):
+                        vista_division();
+                    break;
                 }
         }
 
@@ -122,6 +131,19 @@ float suma(float a, float b){
     /*––––––––––––––––––––*
      * MÓDULOS FRONT-ENED *
      *––––––––––––––––––––*/
+
+//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 5 División–––––––––––––––––––––––––––––––––––––––––––––––|
+
+void vista_division(){
+    float a = -1, b = -1;
+    cout <<"\nBienvenid@ al programa que divide dos números reales.";
+    cout <<"\nIntroduzca un número: ";
+    cin  >> a;
+    cout <<"Introduzca un número: ";
+    cin  >> b;
+
+    cout <<"El resultado de dividir "<<a <<" ÷ " <<b <<" = " <<GE<<" " <<division(a, b) <<" "<<RESET <<endl<<endl;
+}
 
 //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
 
