@@ -30,6 +30,8 @@ void Vista_menu_Ud_1();
 void Ud_1();
 void Control_menu_Ud_1();
 void ejercicio_1();
+void vista_suma();
+
 
 
 
@@ -42,17 +44,28 @@ int main(){
     /*––––––––––––––––––-*
      * MÓDULOS BACK-ENED *
      *–––––––––––––––––––*/
+//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2–––––––––––––––––––––––––––––––––––––––––––––––|
+
+float suma(float a, float b){
+    int res = -1;
+    res = a + b;
+
+    return res;
+}
 
 //–––––––––––––––––––––––––––––––––––––––––––––––––MENÚ UNIDAD 1––––––––––––––––––––––––––––––––––––––––––––| 
 
         void Control_menu_Ud_1(int ejercicio_elejido){
-                cout <<"\nOpción elegida: " <<ejercicio_elejido <<endl;
+                cout <<endl <<UNDERLINE <<"Opción elegida:" <<RESET <<" " <<ejercicio_elejido <<endl;
                 switch(ejercicio_elejido){
                     case(0):
                         control_menu_principal();
                     break;
                     case(1):
                         ejercicio_1();
+                    break;
+                    case(2):
+                        vista_suma();
                     break;
 
                 }
@@ -84,10 +97,21 @@ int main(){
      *––––––––––––––––––––*/
 //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2–––––––––––––––––––––––––––––––––––––––––––––––|
 
+void vista_suma(){
+    float a = -1, b = -1;
+    cout <<"\nBienvenid@ al programa que suma dos números reales.";
+    cout <<"\nIntroduzca un número: ";
+    cin  >> a;
+    cout <<"Introduzca un número: ";
+    cin  >> b;
+
+    cout <<"El resultado de sumar "<<a <<" + " <<b <<" = " <<GE<<" " <<suma(a, b) <<" "<<RESET <<endl<<endl;
+}
+
 
 //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 1–––––––––––––––––––––––––––––––––––––––––––––––|
         void ejercicio_1(){
-            cout << GREEN_COLOR <<"\n¡HOLA MUNDO!\n\n" <<RESET; 
+            cout << GREEN_COLOR <<"\n¡HOLA MUNDO!\n\n" <<RESET <<endl; 
         }
 
 //–––––––––––––––––––––––––––––––––––––––––––––––––MENÚ UNIDAD 1––––––––––––––––––––––––––––––––––––––––––––|
@@ -98,10 +122,10 @@ int main(){
         }
         void Vista_menu_Ud_1(){
             cout << "+==============================================================+" << endl;
-            cout << "| [" <<BOLD <<"0" <<RESET <<"]" <<ITALIC <<" Exit:" <<RESET <<" Salir de la Ud 1.                           |" << endl;
-            cout << "| [" <<BOLD <<"1" <<RESET <<"]" <<ITALIC <<" Ejercicios 1:" <<RESET <<" ¡Hola Mundo!.                       |" << endl;
-            cout << "| [" <<BOLD <<"2" <<RESET <<"]" <<ITALIC <<" EjercicioS 2:" <<RESET <<" Estructuras de Control.             |" << endl;
-            cout << "| [" <<BOLD <<"3" <<RESET <<"]" <<ITALIC <<" Ejercicios 3:" <<RESET <<" Funciones y Modularización.         |" << endl;
+            cout << "| [" <<BOLD <<"0" <<RESET <<"]" <<ITALIC <<" Exit:" <<RESET <<" Salir de la Ud 1.                                  |" << endl;
+            cout << "| [" <<BOLD <<"1" <<RESET <<"]" <<ITALIC <<" Ejercicios 1:" <<RESET <<" ¡Hola Mundo!.                              |" << endl;
+            cout << "| [" <<BOLD <<"2" <<RESET <<"]" <<ITALIC <<" EjercicioS 2:" <<RESET <<" Suma dos números.                          |" << endl;
+            cout << "| [" <<BOLD <<"3" <<RESET <<"]" <<ITALIC <<" Ejercicios 3:" <<RESET <<" Resta dos números.                         |" << endl;
             cout << "+==============================================================+" << endl <<endl;
         }
 
