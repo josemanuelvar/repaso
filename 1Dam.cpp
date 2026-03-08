@@ -31,6 +31,7 @@ void Ud_1();
 void Control_menu_Ud_1();
 void ejercicio_1();
 void vista_suma();
+void vista_resta();
 
 
 
@@ -44,7 +45,17 @@ int main(){
     /*––––––––––––––––––-*
      * MÓDULOS BACK-ENED *
      *–––––––––––––––––––*/
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2–––––––––––––––––––––––––––––––––––––––––––––––|
+
+//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
+
+float resta(float a, float b){
+    int res = -1;
+    res = a - b;
+
+    return res;
+}
+
+//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2 Suma–––––––––––––––––––––––––––––––––––––––––––––––|
 
 float suma(float a, float b){
     int res = -1;
@@ -66,6 +77,9 @@ float suma(float a, float b){
                     break;
                     case(2):
                         vista_suma();
+                    break;
+                    case(3):
+                        vista_resta();
                     break;
 
                 }
@@ -95,7 +109,21 @@ float suma(float a, float b){
     /*––––––––––––––––––––*
      * MÓDULOS FRONT-ENED *
      *––––––––––––––––––––*/
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2–––––––––––––––––––––––––––––––––––––––––––––––|
+
+//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
+
+void vista_resta(){
+    float a = -1, b = -1;
+    cout <<"\nBienvenid@ al programa que resta dos números reales.";
+    cout <<"\nIntroduzca un número: ";
+    cin  >> a;
+    cout <<"Introduzca un número: ";
+    cin  >> b;
+
+    cout <<"El resultado de restar "<<a <<" - " <<b <<" = " <<GE<<" " <<resta(a, b) <<" "<<RESET <<endl<<endl;
+}
+
+//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2 Suma–––––––––––––––––––––––––––––––––––––––––––––––|
 
 void vista_suma(){
     float a = -1, b = -1;
@@ -109,7 +137,7 @@ void vista_suma(){
 }
 
 
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 1–––––––––––––––––––––––––––––––––––––––––––––––|
+//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 1 Hola Mundo–––––––––––––––––––––––––––––––––––––––––––––––|
         void ejercicio_1(){
             cout << GREEN_COLOR <<"\n¡HOLA MUNDO!\n\n" <<RESET <<endl; 
         }
