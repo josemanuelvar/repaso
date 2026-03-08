@@ -4,7 +4,7 @@
     #define GREEN_COLOR "\033[1;32m"
     #define CIAN "\033[1;36m"
     #define PURPLE "\033[1;35m"
-    #define G "\033[40m"
+    #define R "\033[1;41m"
     #define GE "\033[1;42m"
     #define Y "\033[1;43m"
     #define CY "\033[1;46m"
@@ -32,6 +32,7 @@ void Control_menu_Ud_1();
 void ejercicio_1();
 void vista_suma();
 void vista_resta();
+void vista_multiplicacion();
 
 
 
@@ -45,6 +46,15 @@ int main(){
     /*––––––––––––––––––-*
      * MÓDULOS BACK-ENED *
      *–––––––––––––––––––*/
+
+//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
+
+float multiplicacion(float a, float b){
+    int res = -1;
+    res = a * b;
+
+    return res;
+}
 
 //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
 
@@ -81,6 +91,9 @@ float suma(float a, float b){
                     case(3):
                         vista_resta();
                     break;
+                    case(4):
+                        vista_multiplicacion();
+                    break;
 
                 }
         }
@@ -109,6 +122,19 @@ float suma(float a, float b){
     /*––––––––––––––––––––*
      * MÓDULOS FRONT-ENED *
      *––––––––––––––––––––*/
+
+//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
+
+void vista_multiplicacion(){
+    float a = -1, b = -1;
+    cout <<"\nBienvenid@ al programa que multiplica dos números reales.";
+    cout <<"\nIntroduzca un número: ";
+    cin  >> a;
+    cout <<"Introduzca un número: ";
+    cin  >> b;
+
+    cout <<"El resultado de multiplicar "<<a <<" x " <<b <<" = " <<GE<<" " <<multiplicacion(a, b) <<" "<<RESET <<endl<<endl;
+}
 
 //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
 
@@ -154,6 +180,7 @@ void vista_suma(){
             cout << "| [" <<BOLD <<"1" <<RESET <<"]" <<ITALIC <<" Ejercicios 1:" <<RESET <<" ¡Hola Mundo!.                              |" << endl;
             cout << "| [" <<BOLD <<"2" <<RESET <<"]" <<ITALIC <<" EjercicioS 2:" <<RESET <<" Suma dos números.                          |" << endl;
             cout << "| [" <<BOLD <<"3" <<RESET <<"]" <<ITALIC <<" Ejercicios 3:" <<RESET <<" Resta dos números.                         |" << endl;
+            cout << "| [" <<BOLD <<"4" <<RESET <<"]" <<ITALIC <<" Ejercicios 4:" <<RESET <<" Multiplica dos números.                    |" << endl;
             cout << "+==============================================================+" << endl <<endl;
         }
 
