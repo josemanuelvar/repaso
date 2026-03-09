@@ -19,26 +19,25 @@ using namespace std;
 
 //–––––––––––––––––––––––––––––––––––––––––––––––––DECLARACIÓN DE LOS MODULOS––––––––––––––––––––––––––––––––––––––––––––|
 
-void control_menu_principal();
-void Bienvenida_general();
-void Vista_menu_principal();
-void Ud_elegida();
-void Control_menu();
-void exit();
-void control_Ud_1();
-void Bienvenida_Ud_1();
-void Vista_menu_Ud_1();
-void Ud_1();
-void Control_menu_Ud_1();
-void ejercicio_1();
-double PideNumeroReal();
-void vista_suma();
-void controlSuma();
-void controlResta();
-void vista_resta();
-void vista_multiplicacion();
-void vista_division();
-
+    void control_menu_principal();
+    void Bienvenida_general();
+    void Vista_menu_principal();
+    void Ud_elegida();
+    void Control_menu();
+    void exit();
+    void control_Ud_1();
+    void Bienvenida_Ud_1();
+    void Vista_menu_Ud_1();
+    void Ud_1();
+    void Control_menu_Ud_1();
+    void ejercicio_1();
+    double PideNumeroReal();
+    void vista_suma();
+    void controlSuma();
+    void controlResta();
+    void vista_resta();
+    void vista_multiplicacion();
+    void vista_division();
 
 
 int main(){
@@ -127,7 +126,6 @@ int main(){
 
 
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 5 División–––––––––––––––––––––––––––––––––––––––––––––––|
-
         void vista_division(){
             float a = -1, b = -1;
             cout <<"\nBienvenid@ al programa que divide dos números reales.";
@@ -138,9 +136,7 @@ int main(){
 
             cout <<"El resultado de dividir "<<a <<" ÷ " <<b <<" = " <<GE<<" " <<division(a, b) <<" "<<RESET <<endl<<endl;
         }
-
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
-
         void vista_multiplicacion(){
             float a = -1, b = -1;
             cout <<"\nBienvenid@ al programa que multiplica dos números reales.";
@@ -151,23 +147,28 @@ int main(){
 
             cout <<"El resultado de multiplicar "<<a <<" x " <<b <<" = " <<GE<<" " <<multiplicacion(a, b) <<" "<<RESET <<endl<<endl;
         }
-
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
-
+        /**
+         * @brief Módulo que da la bienvenida al usuario 
+         */
         void BienvenidaResta(){
-            cout <<"\nBienvenid@ al programa que resta dos números reales.";
+            cout <<endl <<ORANGE<<"Bienvenid@ al programa que Resta dos números reales." <<RESET <<endl;
         }
+        /**
+         * @brief Módulo que muestra por pantalla los números introducidos y el resultado de la operación resta.
+         */
         void vista_resta(float a, float b){
             cout <<"El resultado de restar "<<a <<" - " <<b <<" = " <<GE<<" " <<resta(a, b) <<" "<<RESET <<endl<<endl;
         }
-
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2 Suma–––––––––––––––––––––––––––––––––––––––––––––––|
+        /**
+         * @brief Módulo que da la bienvenida al usuario 
+         */
         void BienvenidaSuma(){
             cout <<endl <<ORANGE<<"Bienvenid@ al programa que Suma dos números reales." <<RESET <<endl;
-        }
-
+        }                
         /**
-         * @brief 
+         * @brief Módulo que muestra por pantalla los números introducidos y el resultado de la operación suma.
          */
         void vista_suma(float a, float b){
             cout <<"El resultado de sumar "<<a <<" + " <<b <<" = " <<GE<<" " <<suma(a, b) <<" "<<RESET <<endl<<endl;
@@ -219,7 +220,8 @@ int main(){
          * @brief Módulo que da la bienvenida a la unidad 1
          */
         void Bienvenida_Ud_1(){
-            cout <<endl <<CIAN UNDERLINE <<"¡Bienvenid@! A la Unidad 1" <<RESET <<endl;
+            cout <<endl <<CIAN UNDERLINE <<"¡Bienvenid@! A la UNIDAD 1!" <<RESET;
+            cout <<endl <<CIAN UNDERLINE <<"Introducción a la Programación" <<RESET <<endl;
         }
     //––––––––––––––––––––––––––––––––––––––––––––––––MENÚ PRINCIPAL–––––––––––––––––––––––––––––––––––––––––––|
         /**
@@ -248,7 +250,7 @@ int main(){
          * @brief Módulo que da la bienvenida al programa 
          */
         void Bienvenida_general(){
-            cout <<endl <<PURPLE UNDERLINE <<"¡Bienvenid@! Aquí podras ejecutar todos los programas realizados durante el curso de 1º DAM" <<RESET <<endl;
+            cout <<endl <<"🧞‍♂️ ¡"<<PURPLE UNDERLINE <<"Bienvenid@" <<RESET<<"!" <<PURPLE UNDERLINE  <<"Aquí podras ejecutar todos los programas realizados durante el curso de 1º DAM" <<RESET <<endl;
         }
 /*––––––––––––––––––––––*
  * MÓDULOS CONTROL MENÚ *
@@ -258,9 +260,10 @@ int main(){
          * @brief Módulo que controla el flujo de módulos del ejercicio resta.
          */
         void controlResta(){
-            float a = -1, b = -1;
+            double a = -1, b = -1;
             BienvenidaResta();
-            PideNumeroReal();
+            a = PideNumeroReal();
+            b = PideNumeroReal();
             vista_resta(a, b);
         }
     //–––––––––––––––––––––––––––––––––––––––––––––––––CONTROL suma–––––––––––––––––––––––––––––––––––––––|
@@ -268,7 +271,7 @@ int main(){
          * @brief Módulo que controla el flujo de módulos del ejercicio suma.
          */
         void controlSuma(){
-            float a = -1, b = -1;
+            double a = -1, b = -1;
             BienvenidaSuma();
             a = PideNumeroReal();
             b = PideNumeroReal();
@@ -282,15 +285,17 @@ int main(){
             int ejercicio_elejido = -1;
 
             Bienvenida_Ud_1();
-            Vista_menu_Ud_1();
-            Ud_1(ejercicio_elejido);
-            Control_menu_Ud_1(ejercicio_elejido);
+            do{
+                Vista_menu_Ud_1();
+                Ud_1(ejercicio_elejido);
+                Control_menu_Ud_1(ejercicio_elejido);
+            }while(ejercicio_elejido != 0);
         }
         /**
          * @brief Módulo que muestra un mensaje de despedida al usuario cuando sale del programa
          */
         void exit(){
-            cout <<"\n¡Gracias, vuelva pronto!";
+            cout <<endl <<GREEN_COLOR <<" 🤗 ¡Gracias, vuelva pronto!" <<RESET <<endl <<endl;
         }
     //–––––––––––––––––––––––––––––––––––––––––––––––CONTROL PRINCIPAL––––––––––––––––––––––––––––––––––––|
         /**
