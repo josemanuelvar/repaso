@@ -1,12 +1,13 @@
 #include <iostream>
 //PARA AÑADIR COLORES
     #define RED_COLOR "\033[1;31m"
+    #define ORANGE "\033[1;33m"
     #define GREEN_COLOR "\033[1;32m"
     #define CIAN "\033[1;36m"
     #define PURPLE "\033[1;35m"
     #define R "\033[1;41m"
     #define GE "\033[1;42m"
-    #define Y "\033[1;43m"
+    #define O "\033[1;43m"
     #define CY "\033[1;46m"
 
 //PARA ESTILOS DE TEXTO
@@ -30,7 +31,10 @@ void Vista_menu_Ud_1();
 void Ud_1();
 void Control_menu_Ud_1();
 void ejercicio_1();
+double PideNumeroReal();
 void vista_suma();
+void controlSuma();
+void controlResta();
 void vista_resta();
 void vista_multiplicacion();
 void vista_division();
@@ -42,47 +46,37 @@ int main(){
     
 }
 
-    /*––––––––––––––––––-*
-     * MÓDULOS BACK-ENED *
-     *–––––––––––––––––––*/
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 5 División–––––––––––––––––––––––––––––––––––––––––––––––|
+/*––––––––––––––––––-*
+ * MÓDULOS BACK-ENED *
+ *–––––––––––––––––––*/
+    //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 5 División–––––––––––––––––––––––––––––––––––––––––––––––|
+        float division(float a, float b){
+            float res = -1;
+            res = a / b;
 
-float division(float a, float b){
-    float res = -1;
-    res = a / b;
+            return res;
+        }
+    //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
+        float multiplicacion(float a, float b){
+            float res = -1;
+            res = a * b;
 
-    return res;
-}
+            return res;
+        }
+    //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
+        float resta(float a, float b){
+            float res = -1;
+            res = a - b;
 
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
-
-float multiplicacion(float a, float b){
-    float res = -1;
-    res = a * b;
-
-    return res;
-}
-
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
-
-float resta(float a, float b){
-    float res = -1;
-    res = a - b;
-
-    return res;
-}
-
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2 Suma–––––––––––––––––––––––––––––––––––––––––––––––|
-
-float suma(float a, float b){
-    float res = -1;
-    res = a + b;
-
-    return res;
-}
-
-//–––––––––––––––––––––––––––––––––––––––––––––––––MENÚ UNIDAD 1––––––––––––––––––––––––––––––––––––––––––––| 
-
+            return res;
+        }
+    //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2 Suma–––––––––––––––––––––––––––––––––––––––––––––––|
+        float suma(float a, float b){
+            float res = -1;
+            res = a + b;
+            return res;
+        }
+    //–––––––––––––––––––––––––––––––––––––––––––––––––MENÚ UNIDAD 1––––––––––––––––––––––––––––––––––––––––––––| 
         void Control_menu_Ud_1(int ejercicio_elejido){
                 cout <<endl <<UNDERLINE <<"Opción elegida:" <<RESET <<" " <<ejercicio_elejido <<endl;
                 switch(ejercicio_elejido){
@@ -93,10 +87,10 @@ float suma(float a, float b){
                         ejercicio_1();
                     break;
                     case(2):
-                        vista_suma();
+                        controlSuma();
                     break;
                     case(3):
-                        vista_resta();
+                        controlResta();
                     break;
                     case(4):
                         vista_multiplicacion();
@@ -106,9 +100,7 @@ float suma(float a, float b){
                     break;
                 }
         }
-
-
-//–––––––––––––––––––––––––––––––––––––––––––––––––MENÚ PRINCIPAL–––––––––––––––––––––––––––––––––––––|        
+    //–––––––––––––––––––––––––––––––––––––––––––––––––MENÚ PRINCIPAL–––––––––––––––––––––––––––––––––––––|        
         /**
          * @brief Módulo que comprueba y dirige al usuario a la opción elegida.
          * @details Mediante una serie de if's 
@@ -128,73 +120,90 @@ float suma(float a, float b){
             }
         }
 
-    /*––––––––––––––––––––*
-     * MÓDULOS FRONT-ENED *
-     *––––––––––––––––––––*/
-
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 5 División–––––––––––––––––––––––––––––––––––––––––––––––|
-
-void vista_division(){
-    float a = -1, b = -1;
-    cout <<"\nBienvenid@ al programa que divide dos números reales.";
-    cout <<"\nIntroduzca un número: ";
-    cin  >> a;
-    cout <<"Introduzca un número: ";
-    cin  >> b;
-
-    cout <<"El resultado de dividir "<<a <<" ÷ " <<b <<" = " <<GE<<" " <<division(a, b) <<" "<<RESET <<endl<<endl;
-}
-
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
-
-void vista_multiplicacion(){
-    float a = -1, b = -1;
-    cout <<"\nBienvenid@ al programa que multiplica dos números reales.";
-    cout <<"\nIntroduzca un número: ";
-    cin  >> a;
-    cout <<"Introduzca un número: ";
-    cin  >> b;
-
-    cout <<"El resultado de multiplicar "<<a <<" x " <<b <<" = " <<GE<<" " <<multiplicacion(a, b) <<" "<<RESET <<endl<<endl;
-}
-
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
-
-void vista_resta(){
-    float a = -1, b = -1;
-    cout <<"\nBienvenid@ al programa que resta dos números reales.";
-    cout <<"\nIntroduzca un número: ";
-    cin  >> a;
-    cout <<"Introduzca un número: ";
-    cin  >> b;
-
-    cout <<"El resultado de restar "<<a <<" - " <<b <<" = " <<GE<<" " <<resta(a, b) <<" "<<RESET <<endl<<endl;
-}
-
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2 Suma–––––––––––––––––––––––––––––––––––––––––––––––|
-
-void vista_suma(){
-    float a = -1, b = -1;
-    cout <<"\nBienvenid@ al programa que suma dos números reales.";
-    cout <<"\nIntroduzca un número: ";
-    cin  >> a;
-    cout <<"Introduzca un número: ";
-    cin  >> b;
-
-    cout <<"El resultado de sumar "<<a <<" + " <<b <<" = " <<GE<<" " <<suma(a, b) <<" "<<RESET <<endl<<endl;
-}
+/*––––––––––––––––––––*
+ * MÓDULOS FRONT-ENED *
+ *––––––––––––––––––––*/
 
 
-//––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 1 Hola Mundo–––––––––––––––––––––––––––––––––––––––––––––––|
-        void ejercicio_1(){
-            cout << GREEN_COLOR <<"\n¡HOLA MUNDO!\n\n" <<RESET <<endl; 
+
+    //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 5 División–––––––––––––––––––––––––––––––––––––––––––––––|
+
+        void vista_division(){
+            float a = -1, b = -1;
+            cout <<"\nBienvenid@ al programa que divide dos números reales.";
+            cout <<"\nIntroduzca un número: ";
+            cin  >> a;
+            cout <<"Introduzca un número: ";
+            cin  >> b;
+
+            cout <<"El resultado de dividir "<<a <<" ÷ " <<b <<" = " <<GE<<" " <<division(a, b) <<" "<<RESET <<endl<<endl;
         }
 
-//–––––––––––––––––––––––––––––––––––––––––––––––––MENÚ UNIDAD 1––––––––––––––––––––––––––––––––––––––––––––|
+    //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
 
+        void vista_multiplicacion(){
+            float a = -1, b = -1;
+            cout <<"\nBienvenid@ al programa que multiplica dos números reales.";
+            cout <<"\nIntroduzca un número: ";
+            cin  >> a;
+            cout <<"Introduzca un número: ";
+            cin  >> b;
+
+            cout <<"El resultado de multiplicar "<<a <<" x " <<b <<" = " <<GE<<" " <<multiplicacion(a, b) <<" "<<RESET <<endl<<endl;
+        }
+
+    //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
+
+        void BienvenidaResta(){
+            cout <<"\nBienvenid@ al programa que resta dos números reales.";
+        }
+        void vista_resta(float a, float b){
+            cout <<"El resultado de restar "<<a <<" - " <<b <<" = " <<GE<<" " <<resta(a, b) <<" "<<RESET <<endl<<endl;
+        }
+
+    //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2 Suma–––––––––––––––––––––––––––––––––––––––––––––––|
+        void BienvenidaSuma(){
+            cout <<endl <<ORANGE<<"Bienvenid@ al programa que Suma dos números reales." <<RESET <<endl;
+        }
+
+        /**
+         * @brief 
+         */
+        void vista_suma(float a, float b){
+            cout <<"El resultado de sumar "<<a <<" + " <<b <<" = " <<GE<<" " <<suma(a, b) <<" "<<RESET <<endl<<endl;
+        }
+    //––––––––––––––––––––––––––––––––––––––––––––––––––PIDE NÚMERO REAL–––––––––––––––––––––––––––––––––––––––––––––|
+        /**
+         * @brief Función que pide al usuario que introduzca un número y lo almacena en una variable  
+         * @pre el número que se ha de pedir al usuario ha de ser un número real.
+         * @return valor que transfiere por copia del valor almacenado en la variable n.
+         * @pos el número real se transfiere por copia.
+         */
+        double PideNumeroReal(){
+            double n = -1;
+            cout <<"Introduzca un número: ";
+            cin  >> n;
+            return n;
+        }  
+    //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 1 Hola Mundo––––––––––––––––––––––––––––––––––––––––––––|
+       /**
+        * @brief Módulo que muestra el primer ejercicio realizado.
+        */
+        void ejercicio_1(){
+            cout << GREEN_COLOR <<"\n¡HOLA MUNDO!\n" <<RESET <<endl; 
+        }
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––MENÚ UNIDAD 1––––––––––––––––––––––––––––––––––––––––––––––––|
+        /**
+         * @brief Módulo que pide al usuario que ejercicio quiere ver
+         * 
+         * @param ejercicio_elejido (E/S) variable que guarda y transfiere mediante paso por referencia el ejercicio que quiere ver el usuario.
+         */
         void Ud_1(int &ejercicio_elejido){
             cout <<"Elija el ejercicio que desea ver ";
             cin  >> ejercicio_elejido;
+        /**
+         * @brief Módulo que muestra el menú de ejercicios de la unidad 1
+         */
         }
         void Vista_menu_Ud_1(){
             cout << "+==============================================================+" << endl;
@@ -203,25 +212,26 @@ void vista_suma(){
             cout << "| [" <<BOLD <<"2" <<RESET <<"]" <<ITALIC <<" EjercicioS 2:" <<RESET <<" Suma dos números.                          |" << endl;
             cout << "| [" <<BOLD <<"3" <<RESET <<"]" <<ITALIC <<" Ejercicios 3:" <<RESET <<" Resta dos números.                         |" << endl;
             cout << "| [" <<BOLD <<"4" <<RESET <<"]" <<ITALIC <<" Ejercicios 4:" <<RESET <<" Multiplica dos números.                    |" << endl;
+            cout << "| [" <<BOLD <<"5" <<RESET <<"]" <<ITALIC <<" Ejercicios 4:" <<RESET <<" Divide dos números.                        |" << endl;
             cout << "+==============================================================+" << endl <<endl;
         }
-
+        /**
+         * @brief Módulo que da la bienvenida a la unidad 1
+         */
         void Bienvenida_Ud_1(){
             cout <<endl <<CIAN UNDERLINE <<"¡Bienvenid@! A la Unidad 1" <<RESET <<endl;
         }
-
-//––––––––––––––––––––––––––––––––––––––––––––––––MENÚ PRINCIPAL–––––––––––––––––––––––––––––––––––––––––––|
+    //––––––––––––––––––––––––––––––––––––––––––––––––MENÚ PRINCIPAL–––––––––––––––––––––––––––––––––––––––––––|
         /**
          * @brief Módulo que guarda en una variable la opción elegida por el usuario.
          * 
-         * @param opcion (E/S) Variable que almacina la opción elegida por el usuario que determina que ejercicio quiere ver.
+         * @param opcion (E/S) Variable que almacena la opción elegida por el usuario que determina que ejercicio quiere ver.
          */
         void Ud_elegida(int &opcion){
-
             cout <<"Elija la unidad que desea ver ";
             cin  >>opcion;
         }
-
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––VISTA MENÚ––––––––––––––––––––––––––––––––––––––––|
         /**
          * @brief Módulo que muestra por pantalla el menú principal donde se selecciona la unidad que se quiere ver.
          */
@@ -233,17 +243,41 @@ void vista_suma(){
             cout << "| [" <<BOLD <<"3" <<RESET <<"]" <<ITALIC <<" Ejercicios Unidad 3:" <<RESET <<" Funciones y Modularización.         |" << endl;
             cout << "+==============================================================+" << endl <<endl;
         }
-
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––BIENVENIDA––––––––––––––––––––––––––––––––––––––––|
+        /**
+         * @brief Módulo que da la bienvenida al programa 
+         */
         void Bienvenida_general(){
             cout <<endl <<PURPLE UNDERLINE <<"¡Bienvenid@! Aquí podras ejecutar todos los programas realizados durante el curso de 1º DAM" <<RESET <<endl;
         }
-
-
-    /*––––––––––––––––––––––*
-     * MÓDULOS CONTROL MENÚ *
-     *––––––––––––––––––––––*/
-//–––––––––––––––––––––––––––––––––––––––––––––CONTROL MENÚ UNIDAD 1––––––––––––––––––––––––––––––––––|
-
+/*––––––––––––––––––––––*
+ * MÓDULOS CONTROL MENÚ *
+ *––––––––––––––––––––––*/
+    //–––––––––––––––––––––––––––––––––––––––––––––––––CONTROL resta–––––––––––––––––––––––––––––––––––––––|
+        /**
+         * @brief Módulo que controla el flujo de módulos del ejercicio resta.
+         */
+        void controlResta(){
+            float a = -1, b = -1;
+            BienvenidaResta();
+            PideNumeroReal();
+            vista_resta(a, b);
+        }
+    //–––––––––––––––––––––––––––––––––––––––––––––––––CONTROL suma–––––––––––––––––––––––––––––––––––––––|
+        /**
+         * @brief Módulo que controla el flujo de módulos del ejercicio suma.
+         */
+        void controlSuma(){
+            float a = -1, b = -1;
+            BienvenidaSuma();
+            a = PideNumeroReal();
+            b = PideNumeroReal();
+            vista_suma(a, b);
+        }
+    //–––––––––––––––––––––––––––––––––––––––––––––CONTROL MENÚ UNIDAD 1––––––––––––––––––––––––––––––––––|
+        /**
+         * @brief Módulo que controla el flujo del menú de la unidad 1
+         */
         void control_Ud_1(){
             int ejercicio_elejido = -1;
 
@@ -252,12 +286,13 @@ void vista_suma(){
             Ud_1(ejercicio_elejido);
             Control_menu_Ud_1(ejercicio_elejido);
         }
-
+        /**
+         * @brief Módulo que muestra un mensaje de despedida al usuario cuando sale del programa
+         */
         void exit(){
             cout <<"\n¡Gracias, vuelva pronto!";
         }
-
-//–––––––––––––––––––––––––––––––––––––––––––––––CONTROL PRINCIPAL––––––––––––––––––––––––––––––––––––|
+    //–––––––––––––––––––––––––––––––––––––––––––––––CONTROL PRINCIPAL––––––––––––––––––––––––––––––––––––|
         /**
          * @brief Módulo controlador del inicio del programa y del menú principal.
          */
