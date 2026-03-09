@@ -37,7 +37,11 @@ using namespace std;
     void controlResta();
     void vista_resta();
     void vista_multiplicacion();
+    void BienvenidaMultiplicacion();
+    void controlMultiplicacion();
+    void BienvenidaDivision();
     void vista_division();
+    void controlDivision();
 
 
 int main(){
@@ -52,21 +56,18 @@ int main(){
         float division(float a, float b){
             float res = -1;
             res = a / b;
-
             return res;
         }
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
         float multiplicacion(float a, float b){
             float res = -1;
             res = a * b;
-
             return res;
         }
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
         float resta(float a, float b){
             float res = -1;
             res = a - b;
-
             return res;
         }
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2 Suma–––––––––––––––––––––––––––––––––––––––––––––––|
@@ -77,7 +78,7 @@ int main(){
         }
     //–––––––––––––––––––––––––––––––––––––––––––––––––MENÚ UNIDAD 1––––––––––––––––––––––––––––––––––––––––––––| 
         void Control_menu_Ud_1(int ejercicio_elejido){
-                cout <<endl <<UNDERLINE <<"Opción elegida:" <<RESET <<" " <<ejercicio_elejido <<endl;
+            cout <<endl <<UNDERLINE <<"Opción elegida:" <<RESET <<" " <<ejercicio_elejido <<endl;
                 switch(ejercicio_elejido){
                     case(0):
                         control_menu_principal();
@@ -92,11 +93,13 @@ int main(){
                         controlResta();
                     break;
                     case(4):
-                        vista_multiplicacion();
+                        controlMultiplicacion();
                     break;
                     case(5):
-                        vista_division();
+                        controlDivision();
                     break;
+                default:
+                    cout <<endl <<RED_COLOR <<"Opción no permitida" <<RESET <<endl;
                 }
         }
     //–––––––––––––––––––––––––––––––––––––––––––––––––MENÚ PRINCIPAL–––––––––––––––––––––––––––––––––––––|        
@@ -115,7 +118,7 @@ int main(){
                     control_Ud_1();
                 break;
             default:
-                cout <<"\nOpción no permitida\n";
+                cout <<endl <<RED_COLOR <<"Opción no permitida" <<RESET <<endl;
             }
         }
 
@@ -126,25 +129,37 @@ int main(){
 
 
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 5 División–––––––––––––––––––––––––––––––––––––––––––––––|
-        void vista_division(){
-            float a = -1, b = -1;
-            cout <<"\nBienvenid@ al programa que divide dos números reales.";
-            cout <<"\nIntroduzca un número: ";
-            cin  >> a;
-            cout <<"Introduzca un número: ";
-            cin  >> b;
-
-            cout <<"El resultado de dividir "<<a <<" ÷ " <<b <<" = " <<GE<<" " <<division(a, b) <<" "<<RESET <<endl<<endl;
+        /**
+         * @brief Módulo que da la bienvenida al usuario 
+         */
+        void BienvenidaDivision(){
+            cout <<endl <<ORANGE<<"Bienvenid@ al programa que Divide dos números reales." <<RESET <<endl;
+        }
+        /**
+         * @brief Módulo que muestra los dos números introducidos y muestra el resultado por copia tras llamar a la funcion división al pasarle dichos números.
+         * @pre Recibe dos número reales double como parametros formales.
+         * @param a (E) Valor que recibe mediante parametro formal.
+         * @param b (E) Valor que recibe mediante parametro formal.
+         * @pos Muestra los dos números recibidos y se los pasa al modulo que divide uno entre otro y devuelve el resultado para mostrarlo por pantalla.
+         */
+        void vista_division(double a, double b){
+            cout <<"El resultado de dividir "<<a <<" x " <<b <<" = " <<GE<<" " <<division(a, b) <<" "<<RESET <<endl<<endl;
         }
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 4 Multiplicación–––––––––––––––––––––––––––––––––––––––––––––––|
-        void vista_multiplicacion(){
-            float a = -1, b = -1;
-            cout <<"\nBienvenid@ al programa que multiplica dos números reales.";
-            cout <<"\nIntroduzca un número: ";
-            cin  >> a;
-            cout <<"Introduzca un número: ";
-            cin  >> b;
-
+        /**
+         * @brief Módulo que da la bienvenida al usuario 
+         */
+        void BienvenidaMultiplicacion(){
+            cout <<endl <<ORANGE<<"Bienvenid@ al programa que Multiplica dos números reales." <<RESET <<endl;
+        }
+        /**
+         * @brief Módulo que muestra los dos números introducidos y muestra el resultado por copia tras llamar a la funcion multiplicación al pasarle dichos números.
+         * @pre Recibe dos número reales double como parametros formales.
+         * @param a (E) Valor que recibe mediante parametro formal.
+         * @param b (E) Valor que recibe mediante parametro formal.
+         * @pos Muestra los dos números recibidos y se los pasa al modulo que multiplica uno por otro y devuelve el resultado para mostrarlo por pantalla.
+         */
+        void vista_multiplicacion(double a, double b){
             cout <<"El resultado de multiplicar "<<a <<" x " <<b <<" = " <<GE<<" " <<multiplicacion(a, b) <<" "<<RESET <<endl<<endl;
         }
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 3 Resta–––––––––––––––––––––––––––––––––––––––––––––––|
@@ -154,10 +169,14 @@ int main(){
         void BienvenidaResta(){
             cout <<endl <<ORANGE<<"Bienvenid@ al programa que Resta dos números reales." <<RESET <<endl;
         }
-        /**
-         * @brief Módulo que muestra por pantalla los números introducidos y el resultado de la operación resta.
+       /**
+         * @brief Módulo que muestra los dos números introducidos y muestra el resultado por copia tras llamar a un módulo que realiza la resta al pasarle dichos números.
+         * @pre Recibe dos número reales double como parametros formales.
+         * @param a (E) Valor que recibe mediante parametro formal.
+         * @param b (E) Valor que recibe mediante parametro formal.
+         * @pos Muestra los dos números recibidos y se los pasa al modulo que los resta y devuelve el resultado para mostrarlo por pantalla.
          */
-        void vista_resta(float a, float b){
+        void vista_resta(double a, double b){
             cout <<"El resultado de restar "<<a <<" - " <<b <<" = " <<GE<<" " <<resta(a, b) <<" "<<RESET <<endl<<endl;
         }
     //––––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 2 Suma–––––––––––––––––––––––––––––––––––––––––––––––|
@@ -168,9 +187,13 @@ int main(){
             cout <<endl <<ORANGE<<"Bienvenid@ al programa que Suma dos números reales." <<RESET <<endl;
         }                
         /**
-         * @brief Módulo que muestra por pantalla los números introducidos y el resultado de la operación suma.
+         * @brief Módulo que muestra los dos números introducidos y muestra el resultado por copia tras llamar a un módulo que realiza la resta al pasarle dichos números.
+         * @pre Recibe dos número reales double como parametros formales.
+         * @param a (E) Valor que recibe mediante parametro formal.
+         * @param b (E) Valor que recibe mediante parametro formal.
+         * @pos Muestra los dos números recibidos y se los pasa al modulo que los suma y devuelve el resultado para mostrarlo por pantalla.
          */
-        void vista_suma(float a, float b){
+        void vista_suma(double a, double b){
             cout <<"El resultado de sumar "<<a <<" + " <<b <<" = " <<GE<<" " <<suma(a, b) <<" "<<RESET <<endl<<endl;
         }
     //––––––––––––––––––––––––––––––––––––––––––––––––––PIDE NÚMERO REAL–––––––––––––––––––––––––––––––––––––––––––––|
@@ -213,7 +236,7 @@ int main(){
             cout << "| [" <<BOLD <<"2" <<RESET <<"]" <<ITALIC <<" EjercicioS 2:" <<RESET <<" Suma dos números.                          |" << endl;
             cout << "| [" <<BOLD <<"3" <<RESET <<"]" <<ITALIC <<" Ejercicios 3:" <<RESET <<" Resta dos números.                         |" << endl;
             cout << "| [" <<BOLD <<"4" <<RESET <<"]" <<ITALIC <<" Ejercicios 4:" <<RESET <<" Multiplica dos números.                    |" << endl;
-            cout << "| [" <<BOLD <<"5" <<RESET <<"]" <<ITALIC <<" Ejercicios 4:" <<RESET <<" Divide dos números.                        |" << endl;
+            cout << "| [" <<BOLD <<"5" <<RESET <<"]" <<ITALIC <<" Ejercicios 5:" <<RESET <<" Divide dos números.                        |" << endl;
             cout << "+==============================================================+" << endl <<endl;
         }
         /**
@@ -239,7 +262,7 @@ int main(){
          */
         void Vista_menu_principal(){
             cout << "+==============================================================+" << endl;
-            cout << "| [" <<BOLD <<"0" <<RESET <<"]" <<ITALIC <<" Exit:" <<RESET <<" Salida.                                            |" << endl;
+            cout << "| [" <<BOLD <<"0" <<RESET <<"]" <<ITALIC <<" Exit:" <<RESET <<" Salir del programa.                                |" << endl;
             cout << "| [" <<BOLD <<"1" <<RESET <<"]" <<ITALIC <<" Ejercicios Unidad 1:" <<RESET <<" Introducción a la Programación.     |" << endl;
             cout << "| [" <<BOLD <<"2" <<RESET <<"]" <<ITALIC <<" EjercicioS Unidad 2:" <<RESET <<" Estructuras de Control.             |" << endl;
             cout << "| [" <<BOLD <<"3" <<RESET <<"]" <<ITALIC <<" Ejercicios Unidad 3:" <<RESET <<" Funciones y Modularización.         |" << endl;
@@ -250,11 +273,33 @@ int main(){
          * @brief Módulo que da la bienvenida al programa 
          */
         void Bienvenida_general(){
-            cout <<endl <<"🧞‍♂️ ¡"<<PURPLE UNDERLINE <<"Bienvenid@" <<RESET<<"!" <<PURPLE UNDERLINE  <<"Aquí podras ejecutar todos los programas realizados durante el curso de 1º DAM" <<RESET <<endl;
+            cout <<endl <<" ¡"<<PURPLE UNDERLINE <<"Bienvenid@" <<RESET<<"! 🧞‍♂️ " <<PURPLE UNDERLINE  <<"Aquí podras ejecutar todos los programas realizados durante el curso de 1º DAM" <<RESET <<endl;
         }
 /*––––––––––––––––––––––*
  * MÓDULOS CONTROL MENÚ *
  *––––––––––––––––––––––*/
+    //–––––––––––––––––––––––––––––––––––––––––––––––––CONTROL división–––––––––––––––––––––––––––––––––––––––|
+        /**
+         * @brief Módulo que controla el flujo de módulos del ejercicio división.
+         */
+        void controlDivision(){
+            double a = -1, b = -1;
+            BienvenidaDivision();
+            a = PideNumeroReal();
+            b = PideNumeroReal();
+            vista_division(a, b);
+        }
+    //–––––––––––––––––––––––––––––––––––––––––––––––––CONTROL multiplicación–––––––––––––––––––––––––––––––––––––––|
+        /**
+         * @brief Módulo que controla el flujo de módulos del ejercicio multiplicación.
+         */
+        void controlMultiplicacion(){
+            double a = -1, b = -1;
+            BienvenidaMultiplicacion();
+            a = PideNumeroReal();
+            b = PideNumeroReal();
+            vista_multiplicacion(a, b);
+        }    
     //–––––––––––––––––––––––––––––––––––––––––––––––––CONTROL resta–––––––––––––––––––––––––––––––––––––––|
         /**
          * @brief Módulo que controla el flujo de módulos del ejercicio resta.
