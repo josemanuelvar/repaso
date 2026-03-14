@@ -25,7 +25,7 @@ using namespace std;
         void Bienvenida_general();
         void exit();
         void Vista_menu_principal();
-        void Ud_elegida(int &opcion);
+        int Ud_elegida();
         void Bienvenida_Ud_1();
         void Vista_menu_Ud_1();
         void Ud_1(int &ejercicio_elejido);
@@ -42,6 +42,8 @@ using namespace std;
         void BienvenidaCalculadora();
         void vista_menu_operaciones();
         char pedirOperacion(char operacion);
+        void BienvenidaTableDel_7();
+        void Vista_TablaDel_7();
     /*–––––––––––––––––––––––*
      * PROTOTIPOS DE CONTROL *
      *–––––––––––––––––––––––*/
@@ -52,6 +54,7 @@ using namespace std;
         void controlMultiplicacion();
         void controlDivision();
         void controlCalculadora();
+        void controlTablaDel_7();
     /*––––––––––––––––––––––*
      * PROTOTIPOS BACK-END  *
      *––––––––––––––––––––––*/
@@ -68,8 +71,28 @@ int main(){
 }
 
 /*––––––––––––––––––––*
- * MÓDULOS FRONT-END  *
+ * MÓDULOS FRONT-END  * ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––|>
  *––––––––––––––––––––*/
+        //––––––––––––––––––––––––––––––––––––––EJERCICIO 7 Tabla de Multiplicar del 7–––––––––––––––––––––––––––––––––––––|
+            /**
+             * @brief Módulo que da la bienvenida al programa.
+             */
+            void BienvenidaTableDel_7(){
+                cout <<endl <<ORANGE<<"Bienvenid@ al programa para estudiar la tabla de multiplicar del 7." <<RESET <<endl <<endl;
+            }
+            void Vista_TablaDel_7(){
+                cout <<"7 x  1 = " <<GREEN_COLOR <<" "<< 7*1 <<RESET <<endl;
+                cout <<"7 x  2 = " <<GREEN_COLOR << 7*2 <<RESET <<endl;
+                cout <<"7 x  3 = " <<GREEN_COLOR << 7*3 <<RESET <<endl;
+                cout <<"7 x  4 = " <<GREEN_COLOR << 7*4 <<RESET <<endl;
+                cout <<"7 x  5 = " <<GREEN_COLOR << 7*5 <<RESET <<endl;
+                cout <<"7 x  6 = " <<GREEN_COLOR << 7*6 <<RESET <<endl;
+                cout <<"7 x  7 = " <<GREEN_COLOR << 7*7 <<RESET <<endl;
+                cout <<"7 x  8 = " <<GREEN_COLOR << 7*8 <<RESET <<endl;
+                cout <<"7 x  9 = " <<GREEN_COLOR << 7*9 <<RESET <<endl;
+                cout <<"7 x 10 = " <<GREEN_COLOR << 7*10 <<RESET <<endl;
+                cout<<endl;
+            }
         //–––––––––––––––––––––––––––––––––––––––––––EJERCICIO 6 Mini Calculadora––––––––––––––––––––––––––––––––––––––––––|
             /**
              * @brief Modulo que da la bienvenida al usuario
@@ -207,6 +230,7 @@ int main(){
                 cout << "| [" <<BOLD <<"4" <<RESET <<"]" <<ITALIC <<" Ejercicios 4:" <<RESET <<" Multiplica dos números.                    |" << endl;
                 cout << "| [" <<BOLD <<"5" <<RESET <<"]" <<ITALIC <<" Ejercicios 5:" <<RESET <<" Divide dos números.                        |" << endl;
                 cout << "| [" <<BOLD <<"6" <<RESET <<"]" <<ITALIC <<" Ejercicios 6:" <<RESET <<" Mini Calculadora.                          |" << endl;
+                cout << "| [" <<BOLD <<"7" <<RESET <<"]" <<ITALIC <<" Ejercicios 7:" <<RESET <<" Tabla del 7.                               |" << endl;
                 cout << "+==============================================================+" << endl <<endl;
             }
             /**
@@ -218,13 +242,16 @@ int main(){
             }
         //––––––––––––––––––––––––––––––––––––––––––––––––MENÚ PRINCIPAL–––––––––––––––––––––––––––––––––––––––––––|
             /**
-             * @brief Módulo que guarda en una variable la opción elegida por el usuario.
-             * 
-             * @param opcion (E/S) Variable que almacena la opción elegida por el usuario que determina que ejercicio quiere ver.
+             * @brief Módulo que pide un número y comprueba que sea >= 0 
+             * @return Devuelve por copia elvalor guardado en la variable local.
              */
-            void Ud_elegida(int &opcion){
-                cout <<"Elija la unidad que desea ver ";
-                cin  >> opcion;
+            int Ud_elegida(){
+                int opcion = -1;
+                do{
+                    cout <<"Elija la unidad que desea ver ";
+                    cin  >> opcion;
+                }while(opcion <0); 
+                    return opcion;
             }
         //–––––––––––––––––––––––––––––––––––––––––––––VISTA MENÚ PRINCIPAL––––––––––––––––––––––––––––––––––––––––|
             /**
@@ -253,9 +280,12 @@ int main(){
                 cout <<endl <<" ¡"<<PURPLE UNDERLINE <<"Bienvenid@" <<RESET<<"! 🧞‍♂️ " <<PURPLE UNDERLINE  <<"Aquí podras ejecutar todos los programas realizados durante el curso de 1º DAM" <<RESET <<endl;
             }
 /*––––––––––––––––––––––*
- * MÓDULOS CONTROL MENÚ *
+ * MÓDULOS CONTROL MENÚ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––|>
  *––––––––––––––––––––––*/
-
+            void controlTablaDel_7(){
+                BienvenidaTableDel_7();
+                Vista_TablaDel_7();
+            }
             void controlCalculadora(){
                 char operacion = '?';
                 BienvenidaCalculadora();
@@ -263,7 +293,7 @@ int main(){
                     vista_menu_operaciones();
                     operacion = pedirOperacion(operacion);
                     menuOperaciones(operacion);
-                }while(operacion != 'f' || operacion != 'F' );
+                }while(operacion != 'f' && operacion != 'F' );
             }
         //–––––––––––––––––––––––––––––––––––––––––––––––––CONTROL división–––––––––––––––––––––––––––––––––––––––|
             /**
@@ -335,14 +365,14 @@ int main(){
             do{
                 Vista_menu_principal();
                 //2º) Llamada al menú principal
-                Ud_elegida(opcion);
+                opcion = Ud_elegida();
                 //LLAMADA AL BACK
                 //3º) Invocación al comprobador de 
                 Control_menu(opcion);
             }while(opcion != 0);
         }
 /*–––––––––––––––––––*
- * MÓDULOS BACK-END  *
+ * MÓDULOS BACK-END  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––|>
  *–––––––––––––––––––*/
         //––––––––––––––––––––––––––––––––––––––––––––EJERCICIO 6 Mini Calculadora––––––––––––––––––––––––––––––––––––––|
             void menuOperaciones(char operacion){
@@ -363,7 +393,6 @@ int main(){
                         break;
                     case('F'):
                     case('f'):
-                        control_Ud_1();
                         break;
                     default:
                         cout <<endl <<RED_COLOR <<"Opción no permitida" <<RESET <<endl;
@@ -402,6 +431,8 @@ int main(){
                 return res;
             }
         //–––––––––––––––––––––––––––––––––––––––––––––––––––MENÚ UNIDAD 1–––––––––––––––––––––––––––––––––––––––––––––––| 
+
+
             /**
              * @brief Módulo que mediante un switch comprueba el valor del parametro formal y salta al bloque de código que coincide con dicho valor.
              * 
@@ -413,7 +444,7 @@ int main(){
                 cout <<endl <<UNDERLINE <<"Opción elegida:" <<RESET <<" " <<ejercicio_elejido <<endl;
                     switch(ejercicio_elejido){
                         case(0):
-                            control_menu_principal();
+                           
                         break;
                         case(1):
                             ejercicio_1();
@@ -432,6 +463,9 @@ int main(){
                         break;
                         case(6):
                             controlCalculadora();
+                        break;
+                        case(7):
+                            controlTablaDel_7();
                         break;
                     default:
                         cout <<endl <<RED_COLOR <<"Opción no permitida" <<RESET <<endl;
